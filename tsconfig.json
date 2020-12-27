@@ -11,10 +11,13 @@
       "path": "./tsconfig.app.json"
     },
     {
-      "path": "./src/tsconfig.spec.json"
+      "path": "./tsconfig.base.json"
     },
     {
-      "path": "./e2e/tsconfig.e2e.json"
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./e2e/tsconfig.json"
     }
   ]
 }

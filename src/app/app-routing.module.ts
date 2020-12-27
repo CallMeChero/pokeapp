@@ -6,7 +6,7 @@ import { content } from "./shared/routes/content-routes";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/sample/sample-component',
+    redirectTo: 'pokemon',
     pathMatch: 'full'
   },
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/sample/sample-component'
+    redirectTo: 'pokemon'
   }
 ];
 
