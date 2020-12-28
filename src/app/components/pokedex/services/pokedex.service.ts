@@ -29,7 +29,6 @@ export class PokedexService {
 
   addToPokedex(pokemon: IPokemonResponse): void {
    let alreadyAddedPokemons = localStorage.getItem('pokedex_items');
-   console.log(alreadyAddedPokemons);
    if(alreadyAddedPokemons) {
     let parsedPokemons = JSON.parse(alreadyAddedPokemons);
     if(parsedPokemons.some(x => x.name === pokemon.name)) {

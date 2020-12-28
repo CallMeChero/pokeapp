@@ -42,7 +42,6 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this._pokemonService.getOne(this.pokemon.url)
         .pipe(take(1)).subscribe( response => {
-          console.log(response);
           this.pokemonDetail = response;
           this.mapChartData(response.stats)
         });
@@ -55,7 +54,6 @@ export class PokemonDetailComponent implements OnInit {
         this.chartData.push(item.base_stat);
       }
     )
-    console.log(this.chartData, this.chartLable)
   }
 
   closeModal(bool: boolean): void {

@@ -24,7 +24,6 @@ export class CustomizerComponent {
       this.customize.data.color.color = localStorage.getItem("color")
       this.customize.data.color.primary_color = localStorage.getItem("primary_color")
       this.customize.data.color.secondary_color = localStorage.getItem("secondary_color")
-      console.log(this.customize.data.color);
     }
 
   // Open customizer

@@ -86,7 +86,6 @@ export class CustomizerService {
     link.type = "text/css";
     link.rel = "stylesheet";
     link.href = `${window.location.origin}/assets/css/${color}.css`;
-    console.log(link.href)
     head.appendChild(link);
   }
 
