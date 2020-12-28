@@ -1,5 +1,6 @@
 import { IPokemonStats } from "./pokemon-stats.response";
 
+// TODO: proširiti sa interface-ovima a ne sa any...
 export interface IPokemonDetailResponse {
   abilities;
   base_experience: number

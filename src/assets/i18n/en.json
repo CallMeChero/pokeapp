@@ -45,5 +45,11 @@
   "Weight": "Weight",
   "Remove": "Remove",
   "Pokemons In Pokedex": "Pokemons In Pokedex",
-  "Pokemon stats": "Pokemon stats"
+  "Pokemon stats": "Pokemon stats",
+  "HR": "HR",
+  "ATTACK": "ATTACK",
+  "DEFENSE": "DEFENSE",
+  "SPECIAL-ATTACK": "SPECIAL-ATTACK",
+  "SPECIAL-DEFENSE": "SPECIAL-DEFENSE",
+  "SPEED": "SPEED"
 }

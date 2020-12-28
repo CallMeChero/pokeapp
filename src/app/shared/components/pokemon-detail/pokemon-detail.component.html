@@ -45,11 +45,11 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <h5 class="txt-primary">{{ 'Pokemon stats' }}</h5>
+        <h5 class="txt-primary">{{ 'Pokemon stats' | translate}}</h5>
       </div>
       <div class="card-body charts-box">
         <div class="flot-chart-container">
-          <canvas baseChart class="chart flot-chart-placeholder" id="graph123" [legend]="chartLegend" [data]="chartData"
+          <canvas baseChart class="chart flot-chart-placeholder" [legend]="chartLegend" [data]="chartData"
             [labels]="chartLable" [options]="chartOption" [chartType]="chartType" [colors]="chartColor"
             height="80px"></canvas>
         </div>

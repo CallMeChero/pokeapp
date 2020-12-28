@@ -1,13 +1,5 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: endless Admin
-    Template URI: themes.pixelstrap.com/endless
-    Description: This is Admin theme
-    Author: Pixelstrap
-    Author URI: https://themeforest.net/user/pixelstrap
-
------------------------------------------------------------------------------------
-
 01. General CSS
   02. Generic CSS
   03. Card CSS
@@ -184,7 +176,6 @@ $pre-tag-bg-color: rgba($primary-color, 0.05);
 @import "theme/avatars";
 @import "theme/bookmark";
 @import "theme/cart";
-@import "theme/wishlist";
 @import "theme/checkout";
 @import "theme/typeahead-search";
 @import "theme/dashboard_default";

@@ -1,15 +1,7 @@
-import {
-  HttpClient,
-  HttpErrorResponse,
-} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { IBasePagination } from 'src/app/shared/models/pagination/base-pagination';
 import { NotificationService } from 'src/app/shared/services/notification.service';
-import { UrlHelperService } from 'src/app/shared/services/url-helper.service';
 import { IPokemonResponse } from '../../pokemon/models/response/pokemon.response';
 
 @Injectable({
@@ -22,14 +14,14 @@ export class PokedexService {
 
   /* #region  Constructor */
   constructor(
-    private readonly _http: HttpClient,
-    private readonly _urlHelper: UrlHelperService,
     private readonly _notificationService: NotificationService,
     private readonly _translate: TranslateService,
     private readonly _spinner: NgxSpinnerService
   ) {}
+  /* #endregion */
 
-  //Get All Dropdown
+  /* #region  Methods */
+  //Get all
   getAll(): IPokemonResponse[] {
     const pokemons = JSON.parse(localStorage.getItem('pokedex_items'));
     return pokemons;
@@ -80,4 +72,5 @@ export class PokedexService {
       this._spinner.hide();
     }, 2000);
   }
+  /* #endregion */
 }

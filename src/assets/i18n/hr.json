@@ -45,5 +45,11 @@
   "Weight": "Težina",
   "Remove": "Obriši",
   "Pokemons In Pokedex": "Pokemoni u pokedexu",
-  "Pokemon stats": "Atributi pokemona"
+  "Pokemon stats": "Atributi pokemona",
+  "HR": "ŽIVOT",
+  "ATTACK": "NAPAD",
+  "DEFENSE": "OBRANA",
+  "SPECIAL-ATTACK": "SPECIALNI-NAPAD",
+  "SPECIAL-DEFENSE": "SPECIJALNA-OBRANA",
+  "SPEED": "BRZINA"
 }

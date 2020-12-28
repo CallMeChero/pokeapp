@@ -1,5 +1,6 @@
 <div class="main-header-left d-none d-lg-block">
-  <div class="logo-wrapper"><a href="javascript:void(0)"><img src="assets/images/endless-logo.png" alt=""></a></div>
+  <div class="logo-wrapper"><a href="javascript:void(0)"><img src="assets/images/dceranic-logo.png" alt=""></a>
+  </div>
 </div>
 <div class="sidebar custom-scrollbar">
   <ul class="sidebar-menu">
@@ -36,7 +37,8 @@
         <i class="fa fa-angle-right pull-right" *ngIf="menuItem.children"></i>
       </a>
       <!-- 2nd Level Menu -->
-      <ul class="sidebar-submenu" [ngClass]="{'menu-open': menuItem.active, 'menu-close': !menuItem.active }" *ngIf="menuItem.children">
+      <ul class="sidebar-submenu" [ngClass]="{'menu-open': menuItem.active, 'menu-close': !menuItem.active }"
+        *ngIf="menuItem.children">
         <li *ngFor="let childrenItem of menuItem.children" [ngClass]="{active: childrenItem.active}">
           <!-- Sub -->
           <a href="javascript:void(0)" *ngIf="childrenItem.type === 'sub'" (click)="toggletNavActive(childrenItem)">

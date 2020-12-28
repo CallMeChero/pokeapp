@@ -6,6 +6,7 @@ import { PokemonService } from '../../../components/pokemon/services/pokemon.ser
 import { IPokemonStats } from '../../../components/pokemon/models/response/pokemon-stats.response';
 import { chartColors, chartLegend, chartOptions, chartType } from 'src/app/shared/models/consts/chart-config';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'poke-pokemon-detail',
@@ -31,7 +32,8 @@ export class PokemonDetailComponent implements OnInit {
   /* #region  Constructor */
   constructor(
     private readonly _pokemonService: PokemonService,
-    private readonly _modal: NgbActiveModal
+    private readonly _modal: NgbActiveModal,
+    private readonly _translate: TranslateService
   ) { }
   /* #endregion */
 
@@ -49,7 +51,7 @@ export class PokemonDetailComponent implements OnInit {
   mapChartData(responseStats: IPokemonStats[]): void {
     responseStats.forEach(
       (item: IPokemonStats) => {
-        this.chartLable.push(item.stat.name);
+        this.chartLable.push(this._translate.instant(item.stat.name.toUpperCase()));
         this.chartData.push(item.base_stat);
       }
     )
