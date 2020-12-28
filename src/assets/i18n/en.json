@@ -31,10 +31,19 @@
   "Edit": "Edit",
   "Delete": "Delete",
   "Total": "Total",
-  "Pokemon name":"Pokemon name",
+  "Pokemon name": "Pokemon name",
   "Page": "Page",
   "Actions": "Actions",
   "Add pokemon": "Add pokemon",
   "View": "View",
-  "Add to pokedex": "Add to pokedex"
+  "Preview": "Preview",
+  "Add to pokedex": "Add to pokedex",
+  "Please wait...": "Please wait...",
+  "Exit": "Exit",
+  "Pokemon moves": "Pokemon moves",
+  "Height": "Height",
+  "Weight": "Weight",
+  "Remove": "Remove",
+  "Pokemons In Pokedex": "Pokemons In Pokedex",
+  "Pokemon stats": "Pokemon stats"
 }

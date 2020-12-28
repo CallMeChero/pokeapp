@@ -17,6 +17,9 @@ import { CustomizerService } from './services/customizer.service';
 import { DateLocalePipe } from './services/utils/date-locale.pipe';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { CountToModule } from 'angular-count-to';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     ToggleFullscreenDirective,
     LoaderComponent,
     DateLocalePipe,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    PokemonDetailComponent
   ],
   imports: [
     NgxSpinnerModule,
@@ -38,7 +42,9 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    CountToModule,
+    ChartsModule
   ],
   exports: [
     FeatherIconsComponent,
@@ -47,7 +53,9 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     TranslateModule,
     LoaderComponent,
     DateLocalePipe,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    PokemonDetailComponent,
+    CountToModule
   ],
   providers: [
     NavService,

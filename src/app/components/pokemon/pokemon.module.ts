@@ -4,7 +4,6 @@ import { PokemonOverviewComponent } from './pokemon-overview/pokemon-overview.co
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { CountToModule } from 'angular-count-to';
 
 @NgModule({
   declarations: [PokemonOverviewComponent],
@@ -12,8 +11,7 @@ import { CountToModule } from 'angular-count-to';
     CommonModule,
     SharedModule,
     NgxDatatableModule,
-    PokemonRoutingModule,
-    CountToModule
+    PokemonRoutingModule
   ]
 })
 export class PokemonModule { }

@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { IBasePagination } from 'src/app/shared/models/pagination/base-pagination';
 import { UrlHelperService } from 'src/app/shared/services/url-helper.service';
+import { IPokemonDetailResponse } from '../models/response/pokemon-detail.response';
 import { IPokemonResponse } from '../models/response/pokemon.response';
 
 @Injectable({
@@ -24,12 +25,12 @@ export class PokemonService {
     private readonly _urlHelper: UrlHelperService
   ) {}
 
-  //Get All Dropdown
+  /* #region  Methods */
+
+  //Get paginated
   getPaginated(limit: number, offset: number): Observable<IBasePagination<IPokemonResponse>> {
     const url = this._urlHelper.getUrl(this.CONTROLLER_NAME);
     const requestParams = this._urlHelper.getQueryParameters({limit,offset});
-    console.log(url);
-    console.log(requestParams)
     return this._http
       .get<IBasePagination<IPokemonResponse>>(url,{ params: requestParams })
       .pipe(
@@ -38,34 +39,12 @@ export class PokemonService {
       );
   }
 
-  add(formGroup: IPokemonResponse): Observable<any> {
-    const request = { ...formGroup };
-    const url = this._urlHelper.getUrl(this.CONTROLLER_NAME);
+  // Get single
+  getOne(url: string): Observable<IPokemonDetailResponse> {
     return this._http
-      .post<Observable<any>>(url.toString(), request)
+      .get<IPokemonDetailResponse>(url)
       .pipe(
-        tap((data) => console.log('Add bank', JSON.stringify(data))),
-        catchError(this.handleError)
-      );
-  }
-
-  put(formGroup: IPokemonResponse): Observable<any> {
-    const request = { ...formGroup };
-    const url = this._urlHelper.getUrl(this.CONTROLLER_NAME);
-    return this._http
-      .put<Observable<any>>(url.toString(), request)
-      .pipe(
-        tap((data) => console.log('Add bank', JSON.stringify(data))),
-        catchError(this.handleError)
-      );
-  }
-
-  delete(id: number): Observable<any> {
-    const url = this._urlHelper.getUrl(this.CONTROLLER_NAME);
-    return this._http
-      .delete<Observable<any>>(url.toString())
-      .pipe(
-        tap((data) => console.log('Delete bank', JSON.stringify(data))),
+        tap((data) => console.log('Get single pokemon', data)),
         catchError(this.handleError)
       );
   }
@@ -85,4 +64,5 @@ export class PokemonService {
     }
     return throwError(errorMessage);
   }
+  /* #endregion */
 }

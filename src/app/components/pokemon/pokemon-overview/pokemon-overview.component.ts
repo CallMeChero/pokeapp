@@ -3,15 +3,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { IPokemonResponse } from '../models/response/pokemon.response';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { PokemonService } from '../services/pokemon.service';
 import { catchError,take } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { PageInfo } from 'src/app/shared/models/pagination/page-info';
 import { IBasePagination } from 'src/app/shared/models/pagination/base-pagination';
-import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 import { CUSTOM_DATATABLE_ICONS, IDatatableIcons } from 'src/app/shared/models/consts/datatable-icon.const';
-import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
+import { PokemonDetailComponent } from '../../../shared/components/pokemon-detail/pokemon-detail.component';
+import { PokedexService } from '../../pokedex/services/pokedex.service';
 
 @Component({
   selector: 'poke-pokemon-overview',
@@ -34,8 +33,8 @@ export class PokemonOverviewComponent implements AfterViewInit {
    constructor(
      private _modal: NgbModal,
      private _notificationService: NotificationService,
-     private _spinner: NgxSpinnerService,
-     private _pokemonService: PokemonService
+     private _pokemonService: PokemonService,
+     private _pokedexService: PokedexService
    ) {}
    /* #endregion */
 
@@ -59,7 +58,6 @@ export class PokemonOverviewComponent implements AfterViewInit {
         catchError((err) => this.catchAndReplaceError(err)),
       )
       .subscribe((res: IBasePagination<IPokemonResponse>) => {
-        console.log(res)
         this.rows = res.results;
         this.loadingIndicator = false;
         this.currentEntryCount = res.count;
@@ -72,61 +70,16 @@ export class PokemonOverviewComponent implements AfterViewInit {
       centered: true,
       backdrop: 'static',
       keyboard: false,
+      size: 'lg'
     });
-    modal.result
-      .then((result) => {
-        if (result && result.id) {
-          this._pokemonService
-            .put(result)
-            .pipe(
-              take(1),
-              catchError((err) => this.catchAndReplaceError(err))
-            )
-            .subscribe((data) => {
-              this.handleSuccesResponse('Pokemon je uređen');
-            });
-        } else {
-          this._pokemonService
-            .add(result)
-            .pipe(
-              take(1),
-              catchError((err) => this.catchAndReplaceError(err))
-            )
-            .subscribe((data) => {
-              this.handleSuccesResponse('Pokemon je dodan');
-            });
-        }
-      })
-      .catch((reason) => {
-        if (pokemon) {
-          this.handleModalDismiss('Pokemon nije uređen');
-        } else {
-          this.handleModalDismiss('Pokemon nije dodan');
-        }
-        // todo swift alert warning
-      });
+    modal.componentInstance.urlPokemonOverview = true;
+    modal.componentInstance.pokemon = pokemon;
+    modal.result.then((result) => { if(result) this._pokedexService.addToPokedex(pokemon); })
   }
-
-  // 201 - Success
-  handleSuccesResponse(successMessage: string): void {
-    this._spinner.show();
-    // zbog izgleda
-    setTimeout(() => {
-      this._spinner.hide();
-      this._notificationService.fireSuccessMessage(successMessage);
-      this.getPokemons();
-    }, 500);
-  }
-
   // Error handling
   catchAndReplaceError(errorMessage: string): Observable<never> {
     this._notificationService.fireErrorNotification(errorMessage);
     return EMPTY;
-  }
-
-  // Ngb modal dismiss event
-  handleModalDismiss(message: string): void {
-    this._notificationService.fireWarningMessage(message);
   }
   /* #endregion */
 

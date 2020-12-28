@@ -48,6 +48,9 @@ export class NavService {
     {
       path: '/pokemon', title: 'Pokemons', icon: 'gitlab', type: 'link', badgeType: 'primary', badgeValue: 'new', active: true
     },
+    {
+      path: '/pokedex', title: 'Pokedex', icon: 'book-open', type: 'link', badgeType: 'primary', badgeValue: 'new', active: true
+    },
   ];
 
   items = new BehaviorSubject<Menu[]>(this.MENUITEMS);

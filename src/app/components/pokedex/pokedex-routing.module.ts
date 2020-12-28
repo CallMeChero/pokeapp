@@ -8,8 +8,8 @@ const routes: Routes = [
     component: PokedexOverviewComponent,
     data: {
       title: "Pokedex",
-      breadcrumb: "Pokemons in pokedex",
-      icon: "gitlab"
+      breadcrumb: "Pokemons In Pokedex",
+      icon: "book-open"
     }
   },
   {

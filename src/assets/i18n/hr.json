@@ -31,10 +31,19 @@
   "Edit": "Uredi",
   "Delete": "Obriši",
   "Total": "Ukupno",
-  "Pokemon name":"Naziv pokemona",
+  "Pokemon name": "Naziv pokemona",
   "Page": "Stranica",
   "Actions": "Akcije",
   "Add pokemon": "Dodaj pokemona",
   "View": "Pregled",
-  "Add to pokedex": "Dodaj u pokedex"
+  "Preview": "Pogledaj",
+  "Add to pokedex": "Dodaj u pokedex",
+  "Please wait...": "Molimo pričekajte...",
+  "Exit": "Izlaz",
+  "Pokemon moves": "Pokemon pokreti",
+  "Height": "Visina",
+  "Weight": "Težina",
+  "Remove": "Obriši",
+  "Pokemons In Pokedex": "Pokemoni u pokedexu",
+  "Pokemon stats": "Atributi pokemona"
 }
