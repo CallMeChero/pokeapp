@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { NavService } from '../../../services/nav.service';
 import * as feather from 'feather-icons';
 import { CustomizerService } from '../../../services/customizer.service';

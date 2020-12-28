@@ -1,11 +1,13 @@
 {
   "Dashboard": "Kontrolna ploča",
+  "All rights reserved": "Sva prava pridržana",
+  "Made with": "Ručno rađeno sa",
   "Edit Profile": "Uredi profil",
   "Settings": "Postavke",
   "Logout": "Odjava",
   "Notification": "Notifikacije",
   "All": "Sve",
-  "Change Language": "Promjena Jezika",
+  "Change Language": "Jezik",
   "Customize View": "Prilagodba Pregleda",
   "Navigation": "Bočna Traka",
   "LTR Layout": "Traka Lijevo",
@@ -27,5 +29,12 @@
   "Pokemon list": "Lista pokemona",
   "See more": "Vidi više",
   "Edit": "Uredi",
-  "Delete": "Obriši"
+  "Delete": "Obriši",
+  "Total": "Ukupno",
+  "Pokemon name":"Naziv pokemona",
+  "Page": "Stranica",
+  "Actions": "Akcije",
+  "Add pokemon": "Dodaj pokemona",
+  "View": "Pregled",
+  "Add to pokedex": "Dodaj u pokedex"
 }

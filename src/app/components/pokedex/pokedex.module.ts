@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PokemonOverviewComponent } from './pokemon-overview/pokemon-overview.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { PokemonRoutingModule } from './pokemon-routing.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CountToModule } from 'angular-count-to';
+import { PokedexRoutingModule } from './pokedex-routing.module';
 
 @NgModule({
-  declarations: [PokemonOverviewComponent],
+  declarations: [],
   imports: [
     CommonModule,
     SharedModule,
     NgxDatatableModule,
-    PokemonRoutingModule,
+    PokedexRoutingModule,
     CountToModule
   ]
 })
-export class PokemonModule { }
+export class PokedexModule { }

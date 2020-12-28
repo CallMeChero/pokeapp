@@ -9,9 +9,9 @@ import { catchError,take } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { PageInfo } from 'src/app/shared/models/pagination/page-info';
 import { IBasePagination } from 'src/app/shared/models/pagination/base-pagination';
-import { ModalAoePokemonComponent } from '../modal-aoe-pokemon/modal-aoe-pokemon.component';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 import { CUSTOM_DATATABLE_ICONS, IDatatableIcons } from 'src/app/shared/models/consts/datatable-icon.const';
+import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 
 @Component({
   selector: 'poke-pokemon-overview',
@@ -24,7 +24,7 @@ export class PokemonOverviewComponent implements AfterViewInit {
    rows: IPokemonResponse[] = [];
    loadingIndicator: boolean = true;
    currentEntryCount!: number;
-   desiredPageSize: number = 10;
+   desiredPageSize: number = 8;
    desiredPageOffset: number = 0;
    columnMode: ColumnMode = ColumnMode.force;
    customClasses: IDatatableIcons = CUSTOM_DATATABLE_ICONS;
@@ -67,15 +67,12 @@ export class PokemonOverviewComponent implements AfterViewInit {
   }
 
   // Add or Edit
-  addOrEditPokemon(pokemon?: IPokemonResponse): void {
-    const modal = this._modal.open(ModalAoePokemonComponent, {
+  previewPokemon(pokemon?: IPokemonResponse): void {
+    const modal = this._modal.open(PokemonDetailComponent, {
       centered: true,
       backdrop: 'static',
       keyboard: false,
     });
-    if (pokemon) {
-      modal.componentInstance.pokemon = pokemon;
-    }
     modal.result
       .then((result) => {
         if (result && result.id) {
@@ -107,35 +104,6 @@ export class PokemonOverviewComponent implements AfterViewInit {
           this.handleModalDismiss('Pokemon nije dodan');
         }
         // todo swift alert warning
-      });
-  }
-
-  // Delete
-  deletePokemon(pokemon: IPokemonResponse): void {
-    const modalRef = this._modal.open(ConfirmationModalComponent, {
-      centered: true,
-      backdrop: 'static',
-      keyboard: false,
-    });
-    modalRef.componentInstance.title = 'Brisanje pokemona';
-    modalRef.componentInstance.description = `Želite li obrisati pokemona pod nazivom ${pokemon.name}?`;
-    modalRef.componentInstance.isDelete = true; // text danger
-    modalRef.result
-      .then((result) => {
-        if (result == true) {
-          // this._pokemonService
-          //   .delete(pokemon.id)
-          //   .pipe(
-          //     take(1),
-          //     catchError((err) => this.catchAndReplaceError(err))
-          //   )
-          //   .subscribe((data) => {
-          //     this.handleSuccesResponse('Banka je obrisana');
-          //   });
-        }
-      })
-      .catch((reason) => {
-        this.handleModalDismiss('Banka nije obrisana');
       });
   }
 

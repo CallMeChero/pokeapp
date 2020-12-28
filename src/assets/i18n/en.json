@@ -1,11 +1,13 @@
 {
   "Dashboard": "Dashboard",
+  "All rights reserved": "All rights reserved",
+  "Made with": "Made with",
   "Edit Profile": "Edit Profile",
   "Settings": "Settings",
   "Logout": "Logout",
   "Notification": "Notification",
   "All": "All",
-  "Change Language": "Change Language",
+  "Change Language": "Language",
   "Customize View": "Customize View",
   "Navigation": "Navigation",
   "LTR Layout": "LTR Layout",
@@ -27,5 +29,12 @@
   "Pokemon list": "Pokemon list",
   "See more": "See more",
   "Edit": "Edit",
-  "Delete": "Delete"
+  "Delete": "Delete",
+  "Total": "Total",
+  "Pokemon name":"Pokemon name",
+  "Page": "Page",
+  "Actions": "Actions",
+  "Add pokemon": "Add pokemon",
+  "View": "View",
+  "Add to pokedex": "Add to pokedex"
 }

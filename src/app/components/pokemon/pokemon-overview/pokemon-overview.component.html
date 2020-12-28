@@ -1,14 +1,7 @@
 <div class="col-lg-12 p-0 mt-3">
   <div class="card">
-    <div class="card-header b-b-primary d-flex justify-content-between align-items-center">
-      <h5 class="f-20 f-w-600">Pregled</h5>
-      <button
-      class="btn btn-outline-primary"
-      (click)="addOrEditPokemon()"
-      title="Dodaj pokemona"
-      >
-        Dodaj
-      </button>
+    <div class="card-header b-b-primary">
+      <h5 class="f-20 f-w-600">{{ 'View' | translate}}</h5>
     </div>
     <div class="card-body pb-1">
       <ngx-datatable
@@ -27,17 +20,17 @@
         (page)="setPage($event)"
         [cssClasses]='customClasses'
       >
-        <ngx-datatable-column name="Naziv pokemona" prop="name" [width]="250">
+        <ngx-datatable-column [name]="'Pokemon name' | translate" prop="name" [width]="250">
           <ng-template
             ngx-datatable-cell-template
             let-rowIndex="rowIndex"
             let-value="value"
             let-row="row"
           >
-            {{ value | uppercase }}
+            <span class="txt-primary">{{ value | uppercase }}</span>
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Stranica" prop="url" [width]="100">
+        <ngx-datatable-column [name]="'Page' | translate" prop="url" [width]="100">
           <ng-template
             ngx-datatable-cell-template
             let-rowIndex="rowIndex"
@@ -48,7 +41,7 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="Akcije"
+          [name]="'Actions' | translate"
           [width]="250"
           [resizeable]="false"
           [canAutoResize]="false"
@@ -59,17 +52,12 @@
             let-row="row"
             let-value="value"
           >
-            <span class="d-flex justify-content-between">
-              <button class="btn btn-outline-warning" (click)="addOrEditPokemon(row)">
-                {{ "Edit" | translate }}
-              </button>
-              <button class="btn btn-outline-danger ml-2" (click)="deletePokemon(row)">
-                {{ "Delete" | translate }}
-              </button>
-            </span>
+            <button class="btn btn-primary" (click)="previewPokemon(row)">
+              {{ 'Add to pokedex' | translate }}
+            </button>
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-footer class="datatable-footer">
+        <ngx-datatable-footer class="hide-overflow">
           <ng-template
             ngx-datatable-footer-template
             let-rowCount="rowCount"
@@ -77,7 +65,7 @@
             let-curPage="curPage"
           >
             <div class="ml-2">
-              Ukupno: <span class="counter ml-2" [CountTo]="rowCount" [from]="0" [duration]="3"></span>
+              {{ "Total" | translate }}: <span class="counter ml-2" [CountTo]="rowCount" [from]="0" [duration]="3"></span>
             </div>
             <datatable-pager
               [pagerLeftArrowIcon]="customClasses.pagerLeftArrow"

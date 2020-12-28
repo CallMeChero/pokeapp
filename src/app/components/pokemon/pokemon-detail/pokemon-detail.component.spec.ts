@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalAoePokemonComponent } from './modal-aoe-pokemon.component';
+import { PokemonDetailComponent } from './pokemon-detail.component';
 
-describe('ModalAoePokemonComponent', () => {
-  let component: ModalAoePokemonComponent;
-  let fixture: ComponentFixture<ModalAoePokemonComponent>;
+describe('PokemonDetailComponent', () => {
+  let component: PokemonDetailComponent;
+  let fixture: ComponentFixture<PokemonDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalAoePokemonComponent ]
+      declarations: [ PokemonDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalAoePokemonComponent);
+    fixture = TestBed.createComponent(PokemonDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
