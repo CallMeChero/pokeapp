@@ -14,8 +14,7 @@ import { PokedexOverviewComponent } from './pokedex-overview/pokedex-overview.co
     CommonModule,
     SharedModule,
     NgxDatatableModule,
-    PokedexRoutingModule,
-    CountToModule
+    PokedexRoutingModule
   ]
 })
 export class PokedexModule { }

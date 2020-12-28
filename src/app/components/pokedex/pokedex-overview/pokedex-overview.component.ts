@@ -14,7 +14,7 @@ import { PokedexService } from '../services/pokedex.service';
 export class PokedexOverviewComponent implements OnInit {
 
    /* #region  Variables */
-   rows = [];
+   rows: IPokemonResponse[] = [];
    loadingIndicator: boolean = true;
    currentEntryCount!: number;
    desiredPageSize: number = 8;
@@ -23,11 +23,14 @@ export class PokedexOverviewComponent implements OnInit {
    customClasses: IDatatableIcons = CUSTOM_DATATABLE_ICONS;
    /* #endregion */
 
+  /* #region  Constructor */
   constructor(
     private readonly _pokedexService: PokedexService,
     private _modal: NgbModal
   ) { }
+  /* #endregion */
 
+  /* #region  Methods */
   ngOnInit(): void {
     this.rows = this._pokedexService.getAll();
   }
@@ -51,4 +54,5 @@ export class PokedexOverviewComponent implements OnInit {
       this.rows = this._pokedexService.getAll();
     },200)
   }
+  /* #endregion */
 }
